@@ -6,7 +6,7 @@ function requestSignin(event) {
     const formData = new URLSearchParams();
     formData.append('user', user);
     formData.append('password', password);
-    formData.append('login', true);
+    formData.append('signin', true);
     console.log(user, ",", password)
     const options = {
         method: 'POST',

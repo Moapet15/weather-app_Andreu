@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if (isset($_POST['login']))
+    if (isset($_POST['signin']))
     {
         signIn();
     }
@@ -78,7 +78,7 @@
                 {
                     if ($row["password"] == $password)
                     {
-                        $_SESSION['signed'] = TRUE;
+                        // $_SESSION['signed'] = TRUE;
                         $_SESSION['user'] = $user;
                     } 
                     else 
@@ -86,8 +86,8 @@
                         echo "User not authenticated";
                     }
                 }
-                return FALSE;
             }
+            return TRUE;
             $conn->close();
         }
         catch (Exception $e) 
@@ -112,11 +112,5 @@
         
         $sql = "DELETE FROM user WHERE name = '$user' AND password = '$password'";
         $result = $conn->query($sql);
-    }
-
-    function logout()
-    {
-        session_unset();
-        session_destroy();
     }
 ?>

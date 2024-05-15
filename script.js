@@ -2,7 +2,7 @@ import { fetchLocation, defaultLocation, reverseGeocoding } from "./scripts/loca
 import { fetchMeteo } from "./scripts/meteoApi.js"
 import { updateDashboard, updateSuggestions, setUserDashboard } from "./scripts/dashboards.js"
 import { requestLogin, requestLogout, checkLogin, loggedIn } from "./scripts/login.js"
-import { addFavorite, requestUploadPhoto, refreshPhotos,  } from "./scripts/favorites.js"
+import { addFavorite, requestUploadPhoto, refreshPhotos  } from "./scripts/favorites.js"
 import { requestSignin, requestDropSigned } from "./scripts/sign-in.js"
 
 let targetLocation = null
