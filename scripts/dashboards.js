@@ -18,10 +18,12 @@ function updateDashboard(data,location) {
         for (let variable of values) {
             updateVariable(variableSet, variable, data[variableSet][variable],
                 data[`${variableSet}_units`][variable])
+
         }
     }
     // Update meteo images
     for (let [imageVariableSet, values] of Object.entries(imageVariables)) {
+        
         for (let variable of values) {
             updateWMO(imageVariableSet, variable, data[imageVariableSet][variable], data[imageVariableSet]["is_day"])
             updateWindDirection(imageVariableSet, variable, data[imageVariableSet][variable])
@@ -75,7 +77,6 @@ function updateVariable(variableSet, variable, value, units) {
 function updateWMO(variableSet, variable, value, isDay) {
     const targetClass = `.ph-${variableSet}-${variable}`
     let elements = document.querySelectorAll(targetClass)
-
     if (variable == "weather_code") {
         if (variableSet != "current") {
             for (let [index, element] of Array.from(elements).entries()) {

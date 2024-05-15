@@ -31,10 +31,11 @@ function login()
 
         $dbservername = "localhost";
         $dbusername = "root";
-        $dbpassword = "claumestra";
+        $dbpassword = "MoapetS15";
         $dbname = "weatherapp";
+        $dbport = "3306";
 
-        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
+        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname, $dbport);
         $sql = "SELECT name, password FROM user WHERE name= '" . $user . "';";
         $result = $conn->query($sql);
 

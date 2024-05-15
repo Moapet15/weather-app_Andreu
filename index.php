@@ -41,7 +41,7 @@
                     <i class="geoloc-icon bi bi-crosshair"></i>
                 </button>
             </div>
-            <div class="d-flex flex-row gap-3 align-items-center">
+            <div class="d-flex flex-row gap-4 align-items-center">
                 <button class="upload-photo-button btn btn-outline-secondary mx-2" type="button" data-bs-toggle="modal"
                     data-bs-target="#uploadPhotoModal">
                     <i class="bi bi-camera"></i>
@@ -66,6 +66,10 @@
                     <i class="bi bi-person"></i>
                 </button>
                 <button type="button" class="boton-logout btn btn-danger">
+                    <i class="bi bi-person"></i>
+                </button>
+                <button type="button" class="boton-signin btn btn-info" data-bs-toggle="modal"
+                    data-bs-target="#signinModal">
                     <i class="bi bi-person"></i>
                 </button>
             </div>
@@ -97,6 +101,9 @@
                                 <button class="add-favorite-button btn btn-outline-secondary mx-2" type="button">
                                     <i class="geoloc-icon bi bi-heart"></i>
                                 </button>
+                                <!-- <button class="drop-favorite-button btn btn-outline-secondary mx-2" type="button">
+                                    <i class="geoloc-icon bi bi-x-lg"></i>
+                                </button> -->
                             </div>
                         </div>
                     </div>
@@ -344,6 +351,7 @@
         </main>
 
         <!-- LOGIN MODAL -->
+
             <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -364,6 +372,37 @@
                                     <input type="password" class="form-control" id="inputPassword" name="password">
                                 </div>
                                 <button type="button" class="button-login btn btn-primary" name="login">Entra</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Sign-In MODAL -->
+
+        <div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="signinModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="signinModalLabel">Sign In</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="inputUser" class="form-label">User</label>
+                                    <input type="text" class="form-control" id="inputUserSignin" name="user">
+                                    <div id="inputUserHelp" class="form-text">We'll never share your username with anyone
+                                        else.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="inputPasswordSignin" name="password">
+                                </div>
+                                <button type="button" class="button-signin btn btn-primary" name="signin">Crear usuari</button>
+                                <button type="button" class="button-dropSigned btn btn-primary" name="signin">Borrar usuari</button>
                             </form>
                         </div>
                         <div class="modal-footer">

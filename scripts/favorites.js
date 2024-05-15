@@ -157,4 +157,27 @@ function refreshPhotos(location) {
         .catch((error) => { console.log(error) })
 }
 
+// function dropFavorite() {
+//     const formData = new URLSearchParams();
+//     formData.append('dropFavorite', true);
+//     formData.append('name', favorite.name)
+//     formData.append('lat', favorite.lat)
+//     formData.append('lon', favorite.lon)
+
+//     const options = {
+//         method: 'POST',
+//         body: formData
+//     };
+//     fetch("./favorites.php", options)
+//         .then((response) => {
+//             return response.json()
+//         })
+//         .then((response) => {
+//             console.log(response)
+//             // Aquí pots fer alguna cosa amb la resposta del servidor si és necessari
+//         })
+//         .catch((error) => { console.log(error) })
+// }
+
+
 export { getFavorites, addFavorite, requestUploadPhoto, refreshPhotos }

@@ -78,11 +78,14 @@ INSERT INTO `photo` (`id`, `user`, `location`, `url`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int NOT NULL,
+  `id` int NOT NULL,  -- Afegim autoincrement per a millorar l'experiència creant usuaris
   `name` varchar(50) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- Utilitzo la seguent sentència per a modificar la taula original
+--
+-- ALTER TABLE `user` MODIFY COLUMN `id` int NOT NULL AUTO_INCREMENT, MODIFY COLUMN `name` varchar(50) DEFAULT NULL, MODIFY COLUMN `password` varchar(100) DEFAULT NULL;
 --
 -- Volcado de datos para la tabla `user`
 --

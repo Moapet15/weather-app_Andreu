@@ -16,6 +16,10 @@ if (isset($_POST['downloadPhotos'])) {
     getPhotos();
 }
 
+if (isset($_POST['dropFavorite'])) {
+    dropFavorite();
+    }
+
 function getPhotos(){
     try {
         session_start();
@@ -24,10 +28,11 @@ function getPhotos(){
 
         $dbservername = "localhost";
         $dbusername = "root";
-        $dbpassword = "claumestra";
+        $dbpassword = "MoapetS15";
         $dbname = "weatherapp";
+        $dbport = "3306";
 
-        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
+        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname, $dbport);
         $sql = "SELECT url FROM photo WHERE location= '" . $location . "';";
         $result = $conn->query($sql);
 
@@ -59,10 +64,11 @@ function storePhoto()
 
         $dbservername = "localhost";
         $dbusername = "root";
-        $dbpassword = "claumestra";
+        $dbpassword = "MoapetS15";
         $dbname = "weatherapp";
+        $dbport = "3306";
 
-        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
+        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname, $dbport);
         $sql = "SELECT id FROM user WHERE name= '" . $user . "';";
         $result = $conn->query($sql);
 
@@ -94,10 +100,11 @@ function getFavorite()
 
         $dbservername = "localhost";
         $dbusername = "root";
-        $dbpassword = "claumestra";
+        $dbpassword = "MoapetS15";
         $dbname = "weatherapp";
+        $dbport = "3306";
 
-        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
+        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname, $dbport);
         $sql = "SELECT f.name,f.lat,f.lon FROM favorite f JOIN user u ON f.user = u.id WHERE u.name= '" . $user . "';";
         $result = $conn->query($sql);
 
@@ -127,10 +134,11 @@ function addFavorite()
 
         $dbservername = "localhost";
         $dbusername = "root";
-        $dbpassword = "claumestra";
+        $dbpassword = "MoapetS15";
         $dbname = "weatherapp";
+        $dbport = "3306";
 
-        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
+        $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname, $dbport);
         $sql = "SELECT id FROM user WHERE name= '" . $user . "';";
         $result = $conn->query($sql);
 
@@ -152,4 +160,43 @@ function addFavorite()
     }
 }
 
+// function dropFavorite()
+// {
+//     try {
+//         if (!isset($_SESSION['user'])) {
+//             echo "Sessió d'usuari no iniciada";
+//             return;
+//         }
 
+//         $user = $_SESSION['user'];
+//         $name = $_POST['name'];
+//         $lat = $_POST['lat'];
+//         $lon = $_POST['lon'];
+
+//         $dbservername = "localhost";
+//         $dbusername = "root";
+//         $dbpassword = "MoapetS15";
+//         $dbname = "weatherapp";
+//         $dbport = "3306";
+
+//         $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname, $dbport);
+        
+//         // Consulta per obtenir l'ID de l'usuari i eliminar el favorit al mateix temps
+//         $name = $conn->real_escape_string($name);
+//         $sql = "DELETE FROM favorite WHERE user_id = (SELECT id FROM user WHERE name = '$user') AND name = '$name'";
+//         $result = $conn->query($sql);
+
+//         if ($result === true) {
+//             echo "1";
+//         } else {
+//             echo "Error al eliminar el favorit";
+//         }
+//     } catch (Exception $e) {
+//         $errores = "Error: " . $e->getMessage();
+//         echo $errores;
+//     } finally {
+//         $conn->close();
+//     }
+// }
+
+?>

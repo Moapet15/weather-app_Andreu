@@ -2,7 +2,8 @@ import { fetchLocation, defaultLocation, reverseGeocoding } from "./scripts/loca
 import { fetchMeteo } from "./scripts/meteoApi.js"
 import { updateDashboard, updateSuggestions, setUserDashboard } from "./scripts/dashboards.js"
 import { requestLogin, requestLogout, checkLogin, loggedIn } from "./scripts/login.js"
-import { addFavorite, requestUploadPhoto, refreshPhotos } from "./scripts/favorites.js"
+import { addFavorite, requestUploadPhoto, refreshPhotos,  } from "./scripts/favorites.js"
+import { requestSignin, requestDropSigned } from "./scripts/sign-in.js"
 
 let targetLocation = null
 
@@ -11,9 +12,12 @@ window.onload = () => {
     document.querySelector("#searchLocation").addEventListener("input", refreshSuggestions)
     document.querySelector('.search-button').addEventListener('click', searchLocation)
     document.querySelector('.button-login').addEventListener('click', requestLogin)
+    document.querySelector('.button-signin').addEventListener('click', requestSignin)  // Botó afegit per a activar les funcións del Sign-In
+    document.querySelector('.button-dropSigned').addEventListener('click', requestDropSigned)  // Botó afegit per a activar la eliminació de l'usuari
     document.querySelector('.boton-logout').addEventListener('click', requestLogout)
     document.querySelector('.current-location-button').addEventListener('click', getCurrentLocation)
     document.querySelector('.add-favorite-button').addEventListener('click', addFavoriteButton)
+    // document.querySelector('.drop-favorite-button').addEventListener('click', dropFavorite)  // Borrarem preferits
     document.querySelector('#uploadPhotoModal').addEventListener('show.bs.modal',uploadPhotoModalShow)
     document.querySelector('.button-upload-photo').addEventListener('click', requestUploadPhoto)
     document.querySelector('.show-photo-button').addEventListener('click', showOffcanvas)

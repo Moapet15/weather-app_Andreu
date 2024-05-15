@@ -55,7 +55,7 @@ function requestLogin(event) {
     formData.append('user', user);
     formData.append('password', password);
     formData.append('login', true);
-    // console.log(user, ",", password)
+    console.log(user, ",", password)
     const options = {
         method: 'POST',
         body: formData
